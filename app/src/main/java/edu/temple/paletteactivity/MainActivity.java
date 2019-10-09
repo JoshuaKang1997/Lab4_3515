@@ -2,6 +2,7 @@ package edu.temple.paletteactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,17 +20,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Palette Activity");
 
         //Object Declaration
-
         //This is the object declared as a view to make it easier to change colors
         final View window = this.getWindow().getDecorView();
         //This is the Dropdown Spinner
         Spinner spinner = findViewById(R.id.spinner);
 
         //Color Array
-        String[] colors = {"White", "Blue", "Magenta", "Cyan", "Black", "Yellow", "Purple",
-                "Lime", "Red", "Green"};
+        //Resources res = getResources();
+        String[] colors = getResources().getStringArray(R.array.color);
+
         ColorAdapter adapter = new ColorAdapter(MainActivity.this, colors);
         spinner.setAdapter(adapter);
 
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 view.setBackgroundColor(Color.parseColor("White"));
 
                 Intent i = new Intent(getApplicationContext(), CanvasActivity.class);
-                i.putExtra("color",adapterView.getItemAtPosition(position).toString());
+                i.putExtra("key",adapterView.getItemAtPosition(position).toString());
                 startActivity(i);
 
 

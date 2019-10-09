@@ -2,6 +2,7 @@ package edu.temple.paletteactivity;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,16 @@ import android.widget.TextView;
 
 public class ColorAdapter extends BaseAdapter {
 
-    String[] colors;
+
+
     Context context;
+    String[] colors;
 
     public ColorAdapter(Context context, String colors[]) {
         this.context = context;
         this.colors = colors;
     }
+
 
     @Override
     public int getCount() {
