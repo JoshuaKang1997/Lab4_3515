@@ -43,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 //window.setBackgroundColor(Color.parseColor(adapterView.getItemAtPosition(position).toString()));
                 view.setBackgroundColor(Color.parseColor("White"));
 
+                String[] newcolorValue = {"White", "Blue","Green", "Magenta","Cyan","Black",
+                        "Lime", "Yellow","Purple","Red"};
+
                 Intent i = new Intent(getApplicationContext(), CanvasActivity.class);
-                i.putExtra("key",adapterView.getItemAtPosition(position).toString());
+                i.putExtra("key",newcolorValue[position]);
                 startActivity(i);
 
 
@@ -58,3 +61,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+

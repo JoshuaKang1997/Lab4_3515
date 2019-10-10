@@ -11,12 +11,15 @@ import android.widget.BaseAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import static java.security.AccessController.getContext;
+
 public class ColorAdapter extends BaseAdapter {
 
 
 
     Context context;
     String[] colors;
+
 
     public ColorAdapter(Context context, String colors[]) {
         this.context = context;
@@ -52,7 +55,9 @@ public class ColorAdapter extends BaseAdapter {
         String colorValue = colors[i];
         textView.setText(colorValue);
 
-        textView.setBackgroundColor(Color.parseColor(colorValue));
+        String[] newcolorValue = {"White", "Blue","Green", "Magenta","Cyan","Black",
+        "Lime", "Yellow","Purple","Red"};
+        textView.setBackgroundColor(Color.parseColor(newcolorValue[i]));
 
         return textView;
     }
